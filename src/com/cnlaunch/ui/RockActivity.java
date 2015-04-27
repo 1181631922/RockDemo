@@ -1,11 +1,9 @@
 package com.cnlaunch.ui;
 
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Service;
-import android.content.res.XmlResourceParser;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,13 +16,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 @SuppressLint("NewApi")
 public class RockActivity extends Activity implements SensorEventListener,OnClickListener {
 	private SensorManager mSensorManager;
 	private Vibrator mVibrator;
 	private final int ROCKPOWER = 15;
-	private Button share;
+	private Button share,loadactivity;
 //	private XmlResourceParser getPic;
 
 	@Override
@@ -39,6 +39,8 @@ public class RockActivity extends Activity implements SensorEventListener,OnClic
 	private void initView() {
 		this.share = (Button) this.findViewById(R.id.share);
 		this.share.setOnClickListener(this);
+		this.loadactivity=(Button)this.findViewById(R.id.loadactivity);
+		this.loadactivity.setOnClickListener(this);
 //		this.getPic=RockActivity.this.getResources().getLayout(R.drawable.fanyafeng);
 	}
 	
@@ -53,6 +55,13 @@ public class RockActivity extends Activity implements SensorEventListener,OnClic
 		switch (v.getId()) {
 		case R.id.share:
 			showShare();
+			break;
+		case R.id.loadactivity:
+//			Intent it_load=new Intent(RockActivity.this,LoadPicActivity.class);
+//			RockActivity.this.startActivity(it_load);
+			
+			Intent it = new Intent(RockActivity.this,LoadPicActivity.class);
+			RockActivity.this.startActivity(it);
 			break;
 
 		default:
@@ -77,7 +86,7 @@ public class RockActivity extends Activity implements SensorEventListener,OnClic
 		// text是分享文本，所有平台都需要这个字段
 		oks.setText("樊亚风测试分享文本");
 		// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-		oks.setImagePath("/sdcard/fanyafeng.png");// 确保SDcard下面存在此张图片
+		oks.setImagePath("/sdcard/fanyafeng/fanyafeng.png");// 确保SDcard下面存在此张图片
 		// url仅在微信（包括好友和朋友圈）中使用
 		oks.setUrl("http://eqxiu.com/s/4NdsxskD");
 		// comment是我对这条分享的评论，仅在人人网和QQ空间使用

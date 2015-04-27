@@ -10,15 +10,10 @@
         android:background="#C7EDCC"
         android:text="摇啊 你摇啊~~" />
     <Button
-        android:id="@+id/share"
+        android:id="@+id/loadpic"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="一键分享" 
+        android:text="下载图片" 
         />
-    <Button 
-        android:id="@+id/loadactivity"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="跳到下载界面"/>
 
 </LinearLayout>
