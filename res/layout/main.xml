@@ -9,5 +9,11 @@
         android:layout_height="30dip"
         android:background="#C7EDCC"
         android:text="摇啊 你摇啊~~" />
+    <Button
+        android:id="@+id/share"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="一键分享" 
+        />
 
 </LinearLayout>
